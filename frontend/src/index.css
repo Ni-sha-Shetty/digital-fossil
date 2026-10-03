@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Theme Colors */
+  --bg-app: #080C14;
+  --bg-panel: #0E1626;
+  --bg-card: #131F33;
+  --bg-card-hover: #192842;
+  --bg-subtle: rgba(255, 255, 255, 0.04);
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-glow: rgba(56, 189, 248, 0.3);
+
+  --text-main: #F1F5F9;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+
+  /* Epistemic Badges & Status */
+  --fact-color: #10B981;
+  --fact-bg: rgba(16, 185, 129, 0.12);
+  --fact-border: rgba(16, 185, 129, 0.35);
+
+  --inference-color: #38BDF8;
+  --inference-bg: rgba(56, 189, 248, 0.12);
+  --inference-border: rgba(56, 189, 248, 0.35);
+
+  --hypothesis-color: #C084FC;
+  --hypothesis-bg: rgba(192, 132, 252, 0.12);
+  --hypothesis-border: rgba(192, 132, 252, 0.35);
+
+  --unknown-color: #FBBF24;
+  --unknown-bg: rgba(251, 191, 36, 0.12);
+  --unknown-border: rgba(251, 191, 36, 0.35);
+
+  --conflict-color: #F87171;
+  --conflict-bg: rgba(248, 113, 113, 0.12);
+  --conflict-border: rgba(248, 113, 113, 0.35);
+
+  --anomaly-color: #FB923C;
+  --anomaly-bg: rgba(251, 146, 60, 0.12);
+  --anomaly-border: rgba(251, 146, 60, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
+
+/* Base Utility Classes */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  transform: translateY(-1px);
+}
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-color: var(--border-medium);
+}
+.btn-secondary:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--inference-color);
+}
+.btn-success {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+.btn-success:hover {
+  background: rgba(16, 185, 129, 0.3);
+}
+.btn-danger {
+  background: rgba(239, 68, 68, 0.2);
+  color: #F87171;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+.btn-danger:hover {
+  background: rgba(239, 68, 68, 0.3);
+}
+.btn-sm {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-fact {
+  background: var(--fact-bg);
+  color: var(--fact-color);
+  border: 1px solid var(--fact-border);
+}
+.badge-inference {
+  background: var(--inference-bg);
+  color: var(--inference-color);
+  border: 1px solid var(--inference-border);
+}
+.badge-hypothesis {
+  background: var(--hypothesis-bg);
+  color: var(--hypothesis-color);
+  border: 1px solid var(--hypothesis-border);
+}
+.badge-unknown {
+  background: var(--unknown-bg);
+  color: var(--unknown-color);
+  border: 1px solid var(--unknown-border);
+}
+.badge-conflict {
+  background: var(--conflict-bg);
+  color: var(--conflict-color);
+  border: 1px solid var(--conflict-border);
+}
+.badge-anomaly {
+  background: var(--anomaly-bg);
+  color: var(--anomaly-color);
+  border: 1px solid var(--anomaly-border);
+}
+.badge-baseline {
+  background: rgba(148, 163, 184, 0.12);
+  color: #94A3B8;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.input-field {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.85rem;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.input-field:focus {
+  border-color: var(--inference-color);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
